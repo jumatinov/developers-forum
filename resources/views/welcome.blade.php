@@ -31,7 +31,14 @@
 
         <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
         <link rel="stylesheet" type="text/css" href="{{ asset('rs-plugin/css/settings.css') }}" media="screen" />
+        <script>
+            window.myApp = <?php echo json_encode([
+                'csrfToken' => csrf_token(),
+                'base_url' => \URL::to('/'),
+                'user' => session('user')
+            ]); ?>
 
+        </script>
     </head>
     <body>
     <div id="app"></div>

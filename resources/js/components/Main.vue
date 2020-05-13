@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="posttext pull-left">
-                                <h2><a href="02_topic.html">10 Kids Unaware of Their Halloween Costume</a></h2>
+                                <h2><a href="/question">10 Kids Unaware of Their Halloween Costume</a></h2>
                                 <p>It's one thing to subject yourself to a Halloween costume mishap because, hey, that's your prerogative.</p>
                             </div>
                             <div class="clearfix"></div>
@@ -271,6 +271,7 @@
                     </div><!-- POST -->
 
                 </div>
+                <app-sidebar></app-sidebar>
                 <div class="col-lg-4 col-md-4">
 
                     <!-- -->
@@ -301,7 +302,8 @@
                                     <tr>
                                         <td>
                                             <div class="progress">
-                                                <div class="progress-bar color1" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                                <div class="progress-bar color1" role="progressbar" aria-valuenow="40"
+                                                     aria-valuemin="0" aria-valuemax="100" style="width: 90%">
                                                     Call of Duty Ghosts
                                                 </div>
                                             </div>
@@ -314,7 +316,8 @@
                                     <tr>
                                         <td>
                                             <div class="progress">
-                                                <div class="progress-bar color2" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 63%">
+                                                <div class="progress-bar color2" role="progressbar" aria-valuenow="40"
+                                                     aria-valuemin="0" aria-valuemax="100" style="width: 63%">
                                                     Titanfall
                                                 </div>
                                             </div>
@@ -327,7 +330,8 @@
                                     <tr>
                                         <td>
                                             <div class="progress">
-                                                <div class="progress-bar color3" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+                                                <div class="progress-bar color3" role="progressbar" aria-valuenow="40"
+                                                     aria-valuemin="0" aria-valuemax="100" style="width: 75%">
                                                     Battlefield 4
                                                 </div>
                                             </div>
@@ -368,7 +372,6 @@
                         </div>
                     </div>
 
-
                 </div>
             </div>
         </div>
@@ -408,7 +411,9 @@
 
 </template>
 <script>
+    import Sidebar from "./Sidebar";
     export default {
         name: 'AppMain',
+        component: {Sidebar},
     }
 </script>

@@ -17,7 +17,8 @@
         <!-- //Slider -->
 
         <app-header></app-header>
-        <app-main></app-main>
+<!--        <app-main></app-main>-->
+        <router-view />
         <app-footer></app-footer>
     </div>
 
