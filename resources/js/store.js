@@ -30,9 +30,29 @@ const store = new Vuex.Store({
         getQuestions(context, page = 1) {
             return get(`/api/questions?page=${page}`).then((response) => {
                 context.commit('updateQuestions', response.data.data);
-                context.commit('updateQuestionsPagination', response.data);
+                context.commit('updateQuestionsPagination', response.data.meta);
+                return response;
             })
-        }
+        },
+        saveQuestion(context, data) {
+            return post('/api/questions', data);
+        },
+        getQuestionsByTag(context, id) {
+            return get(`/api/questions-by-tags/${id}`)
+                .then((response) => {
+                    context.commit('updateQuestions', response.data.data);
+                    return response;
+                });
+        },
+        getQuestion(context, id) {
+            return get(`/api/questions/${id}`);
+        },
+        saveAnswer(context, answer) {
+            return post('/api/answers', answer);
+        },
+        getUserQuestions(context) {
+            return get('/api/user/questions');
+        },
     },
     mutations: {
         updateCurrentUser(state, user) {

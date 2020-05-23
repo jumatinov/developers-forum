@@ -40,9 +40,4 @@ class UserController extends Controller
         $user->update($request->all());
         return $user;
     }
-
-    public function userQuestions(Request $request)
-    {
-        return $request->user()->questions;
-    }
 }

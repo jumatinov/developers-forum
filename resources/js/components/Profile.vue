@@ -17,16 +17,14 @@
 
                     <!-- POST -->
                     <div class="post">
-                        <form action="#" class="form newtopic" method="post">
-                            <div class="postinfotop">
-                                <h2>Create New Account</h2>
-                            </div>
+                        <div action="#" class="form newtopic" method="post">
+
 
                             <!-- acc section -->
                             <div class="accsection">
                                 <div class="acccap">
                                     <div class="userinfo pull-left">&nbsp;</div>
-                                    <div class="posttext pull-left"><h3>Required Fields</h3></div>
+                                    <div class="posttext pull-left"><h3>Ваши данные</h3></div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="topwrap">
@@ -40,26 +38,29 @@
                                             <button class="btn">Добавить</button>
                                         </div>
                                     </div>
-                                    <div class="posttext pull-left">
+                                    <div class="posttext pull-left" v-if="user">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
-                                                <input type="text" placeholder="First Name" class="form-control" />
+                                                <input type="text" v-model="user.name" placeholder="Имя" class="form-control" />
                                             </div>
                                             <div class="col-lg-6 col-md-6">
-                                                <input type="text" placeholder="Last Name" class="form-control" />
+                                                <input type="text" placeholder="Фамилия" v-model="user.surname" class="form-control" />
                                             </div>
                                         </div>
                                         <div>
-                                            <input type="text" placeholder="User Name" class="form-control" />
+                                            <input type="text" placeholder="username" v-model="user.username" class="form-control" />
                                         </div>
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <input type="password" placeholder="Password" class="form-control" id="pass" name="pass" />
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <input type="password" placeholder="Retype Password" class="form-control" id="pass2" name="pass2" />
-                                            </div>
+                                        <div>
+                                            <input type="text" placeholder="email" v-model="user.email" class="form-control" />
                                         </div>
+<!--                                        <div class="row">-->
+<!--                                            <div class="col-lg-6 col-md-6">-->
+<!--                                                <input type="password" placeholder="Password" class="form-control" id="pass" name="pass" />-->
+<!--                                            </div>-->
+<!--                                            <div class="col-lg-6 col-md-6">-->
+<!--                                                <input type="password" placeholder="Retype Password" class="form-control" id="pass2" name="pass2" />-->
+<!--                                            </div>-->
+<!--                                        </div>-->
 
                                     </div>
                                     <div class="clearfix"></div>
@@ -69,245 +70,64 @@
 
 
                             <!-- acc section -->
-                            <div class="accsection privacy">
-                                <div class="acccap">
-                                    <div class="userinfo pull-left">&nbsp;</div>
-                                    <div class="posttext pull-left"><h3>Privacy</h3></div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="topwrap">
-                                    <div class="userinfo pull-left">&nbsp;</div>
-                                    <div class="posttext pull-left">
-
-                                        <div class="row newtopcheckbox">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div><p>Who can see my Profile?</p></div>
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" id="everyone" /> Everyone
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" id="friends"  /> Only Friends
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div>
-                                                    <p>Share posts on Social Networks</p>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-4">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" id="fb"/> <i class="fa fa-facebook-square"></i>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-4">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" id="tw" /> <i class="fa fa-twitter"></i>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-4">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" id="gp"  /> <i class="fa fa-google-plus-square"></i>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div><!-- acc section END -->
 
 
 
                             <!-- acc section -->
-                            <div class="accsection survey">
-                                <div class="acccap">
-                                    <div class="userinfo pull-left">&nbsp;</div>
-                                    <div class="posttext pull-left">
-                                        <div class="htext">
-                                            <h3>Small Survey ( Optional )</h3>
-                                        </div>
-                                        <div class="hnotice">
-                                            Answer this survey and Earn this Badge : <img src="images/icon5.jpg" alt="" />
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="topwrap">
-                                    <div class="userinfo pull-left">&nbsp;</div>
-                                    <div class="posttext pull-left">
-
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <select name="old" id="old"  class="form-control" >
-                                                    <option value="" disabled selected>How Old are you?</option>
-                                                    <option value="op1">Option1</option>
-                                                    <option value="op2">Option2</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <select name="who" id="who"  class="form-control" >
-                                                    <option value="" disabled selected>Who are you?</option>
-                                                    <option value="op1">Option1</option>
-                                                    <option value="op2">Option2</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <select name="help" id="help"  class="form-control" >
-                                                    <option value="" disabled selected>Will you help others here?</option>
-                                                    <option value="op1">Option1</option>
-                                                    <option value="op2">Option2</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <select name="hear" id="hear"  class="form-control" >
-                                                    <option value="" disabled selected>Where do you hear about us?</option>
-                                                    <option value="op1">Option1</option>
-                                                    <option value="op2">Option2</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row newtopcheckbox">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div><p>Some other question 1</p></div>
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" id="everyone2" /> option 1
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" id="friends2"  /> option 2
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div>
-                                                    <p>Some other question 2</p>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" id="fb2"/> option 1
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" id="tw2" /> option 2
-                                                            </label>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div><!-- acc section END -->
-
-
-
-
 
                             <!-- acc section -->
-                            <div class="accsection networks">
-                                <div class="acccap">
-                                    <div class="userinfo pull-left">&nbsp;</div>
-                                    <div class="posttext pull-left">
-                                        <div class="htext">
-                                            <h3>Social Networks ( Optional )</h3>
-                                        </div>
-                                        <div class="hnotice">
-                                            Link Social Networks and Earn this Badge : <img src="images/icon6.jpg" alt="" />
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="topwrap">
-                                    <div class="userinfo pull-left">&nbsp;</div>
-                                    <div class="posttext pull-left">
-
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <button class="btn btn-fb">Link Facebook Account</button>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <button class="btn btn-tw">Link Twitter Account</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <button class="btn btn-gp">Link Google + Account</button>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <button class="btn btn-pin">Link Pinterest Account</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div><!-- acc section END -->
-
-
 
 
 
                             <div class="postinfobot">
 
-                                <div class="notechbox pull-left">
-                                    <input type="checkbox" name="note" id="note" class="form-control" />
-                                </div>
-
-                                <div class="pull-left lblfch">
-                                    <label for="note"> I agree with the Terms and Conditions of this site</label>
-                                </div>
 
                                 <div class="pull-right postreply">
                                     <div class="pull-left smile"><a href="#"><i class="fa fa-smile-o"></i></a></div>
-                                    <div class="pull-left"><button type="submit" class="btn btn-primary">Sign Up</button></div>
+                                    <div class="pull-left"><button class="btn btn-primary">Изменить</button></div>
                                     <div class="clearfix"></div>
                                 </div>
 
 
                                 <div class="clearfix"></div>
                             </div>
-                        </form>
+                        </div>
                     </div><!-- POST -->
 
 
+                    <h5>Ваши вопросы: </h5>
 
+                    <div class="post" v-for="question in questions">
+                        <div class="wrap-ut pull-left">
+                            <div class="userinfo pull-left">
+                                <div class="avatar" :title="`${user.name} ${user.surname}`">
+                                    <img src="images/avatar.jpg" alt="" />
+                                    <div class="status green">&nbsp;</div>
+                                </div>
+
+                                <div class="icons">
+                                    <img src="images/icon1.jpg" alt="" /><img src="images/icon4.jpg" alt="" />
+                                </div>
+                            </div>
+                            <div class="posttext pull-left">
+                                <h2><router-link :to="`/question/${question.id}`">{{ question.title }}</router-link></h2>
+                                <p>{{ question.question }}</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="postinfo pull-left">
+                            <div class="comments">
+                                <div class="commentbg">
+                                    560
+                                    <div class="mark"></div>
+                                </div>
+
+                            </div>
+                            <div class="views"><i class="fa fa-eye"></i> 1,568</div>
+                            <div class="time"><i class="fa fa-clock-o"></i> {{ moment(question.created_at).fromNow() }}</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div><!-- POST -->
 
 
 
@@ -321,8 +141,28 @@
 </template>
 <script>
     import AppSidebar from "./AppSidebar";
+    import {mapState} from 'vuex';
+    import moment from 'moment';
     export default {
         name: 'Profile',
         components: {AppSidebar},
+        data() {
+            return {
+                questions: [],
+                moment
+            }
+        },
+        computed: {
+            ...mapState({
+                user: state => state.currentUser,
+            })
+        },
+        created() {
+            this.$store.dispatch('getMe');
+            this.$store.dispatch('getUserQuestions')
+                .then((response) => {
+                    this.questions = response.data;
+                });
+        },
     }
 </script>

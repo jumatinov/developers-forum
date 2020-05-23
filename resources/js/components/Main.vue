@@ -6,20 +6,12 @@
                     <div class="pull-left"><a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a></div>
                     <div class="pull-left">
                         <ul class="paginationforum">
-                            <li class="hidden-xs"><a href="#">1</a></li>
-                            <li class="hidden-xs"><a href="#">2</a></li>
-                            <li class="hidden-xs"><a href="#">3</a></li>
-                            <li class="hidden-xs"><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#" class="active">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li class="hidden-xs"><a href="#">9</a></li>
-                            <li class="hidden-xs"><a href="#">10</a></li>
-                            <li class="hidden-xs hidden-md"><a href="#">11</a></li>
-                            <li class="hidden-xs hidden-md"><a href="#">12</a></li>
-                            <li class="hidden-xs hidden-sm hidden-md"><a href="#">13</a></li>
-                            <li><a href="#">1586</a></li>
+                            <li v-for="(page, index) in paginationDraw(pagination.current_page, pagination.last_page)">
+                                <a href="javascript:void(0)"
+                                   :class="page == pagination.current_page ? 'active' : ''"
+                                   @click="changePage(page)" v-if="page !== '...'">{{ page }}</a>
+                                <a href="javascript:void(0)" v-else>{{ page }}</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="pull-left"><a href="#" class="prevnext last"><i class="fa fa-angle-right"></i></a></div>
@@ -46,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="posttext pull-left">
-                                <h2><a href="/question">{{ question.title }}</a></h2>
+                                <h2><router-link :to="`/question/${question.id}`">{{ question.title }}</router-link></h2>
                                 <p>{{ question.question }}</p>
                             </div>
                             <div class="clearfix"></div>
@@ -282,20 +274,12 @@
                     <div class="pull-left"><a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a></div>
                     <div class="pull-left">
                         <ul class="paginationforum">
-                            <li class="hidden-xs"><a href="#">1</a></li>
-                            <li class="hidden-xs"><a href="#">2</a></li>
-                            <li class="hidden-xs"><a href="#">3</a></li>
-                            <li class="hidden-xs"><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#" class="active">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li class="hidden-xs"><a href="#">9</a></li>
-                            <li class="hidden-xs"><a href="#">10</a></li>
-                            <li class="hidden-xs hidden-md"><a href="#">11</a></li>
-                            <li class="hidden-xs hidden-md"><a href="#">12</a></li>
-                            <li class="hidden-xs hidden-sm hidden-md"><a href="#">13</a></li>
-                            <li><a href="#">1586</a></li>
+                            <li v-for="(page, index) in paginationDraw(pagination.current_page, pagination.last_page)">
+                                <a href="javascript:void(0)"
+                                   :class="page == pagination.current_page ? 'active' : ''"
+                                   @click="changePage(page)" v-if="page !== '...'">{{ page }}</a>
+                                <a href="javascript:void(0)" v-else>{{ page }}</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="pull-left"><a href="#" class="prevnext last"><i class="fa fa-angle-right"></i></a></div>
@@ -321,12 +305,48 @@
             }
         },
         created() {
-            this.$store.dispatch('getQuestions');
+            this.$store.dispatch('getQuestions').then(() => {console.log(this.pagination)});
         },
         computed: {
             ...mapState({
                 questions: state => state.questions,
+                pagination: state => state.questionsPagination,
             })
+        },
+        methods: {
+            changePage(page) {
+                this.$store.dispatch('getQuestions', page);
+            },
+            paginationDraw(c, m) {
+                const current = c;
+                const last = m;
+                const delta = 2;
+                const left = current - delta;
+                const right = current + delta + 1;
+                const range = [];
+                const rangeWithDots = [];
+                let l;
+
+                for (let i = 1; i <= last; i++) {
+                    if ((i === 1 || i === last) || (i >= left && i < right)) {
+                        range.push(i);
+                    }
+                }
+
+                range.forEach((i) => {
+                    if (l) {
+                        if (i - l === 2) {
+                            rangeWithDots.push(l + 1);
+                        } else if (i - l !== 1) {
+                            rangeWithDots.push('...');
+                        }
+                    }
+                    rangeWithDots.push(i);
+                    l = i;
+                });
+                return rangeWithDots;
+            },
+
         }
     }
 </script>

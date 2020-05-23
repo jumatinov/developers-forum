@@ -3,29 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\QuestionResource;
+use App\Http\Resources\QuestionWithTagResource;
 use App\Question;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api')->except(['index', 'show']);
+        $this->middleware('auth:api')->except(['index', 'show', 'questionsByTags']);
     }
 
     public function index()
     {
-        return QuestionResource::collection(Question::paginate(5));
+        return QuestionResource::collection(Question::orderBy('created_at', 'desc')->paginate(8));
     }
 
     public function store(Request $request)
     {
-        return Question::create($request->all());
+        $question = Question::create($request->all());
+        if ($request->has('tag_id')) {
+            $question->saveTag((int)$request->tag_id);
+        }
+        return $question;
     }
 
     public function show(Question $question)
     {
-        return $question;
+        return QuestionWithTagResource::make($question);
     }
 
     public function destroy(Question $question)
@@ -38,5 +44,10 @@ class QuestionController extends Controller
     {
         $question->update($request->all());
         return $question;
+    }
+
+    public function questionsByTags($id)
+    {
+        return QuestionResource::collection(Tag::find($id)->questions()->paginate(5));
     }
 }

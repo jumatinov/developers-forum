@@ -49,4 +49,9 @@ class User extends Authenticatable
         $this->api_token = Str::random(60);
         $this->update();
     }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 }

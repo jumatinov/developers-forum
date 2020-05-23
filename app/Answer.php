@@ -10,6 +10,11 @@ class Answer extends Model
 
     protected $dates = ['created_at'];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function question()
     {
         return $this->belongsTo(Answer::class);

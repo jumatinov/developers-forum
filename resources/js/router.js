@@ -29,7 +29,7 @@ const router = new VueRouter({
             component: NewQuestion,
         },
         {
-            path: '/question',
+            path: '/question/:id',
             component: Question,
         },
         {

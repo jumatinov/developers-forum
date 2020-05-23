@@ -20,8 +20,19 @@ class Question extends Model
         return $this->belongsToMany(Tag::class, 'question_tags');
     }
 
+    public function tag()
+    {
+        return $this->tags()->first();
+    }
+
     public function answers()
     {
         return $this->hasMany(Answer::class, 'question_id');
+    }
+
+    public function saveTag(int $id)
+    {
+        $this->tags()->sync([$id]);
+        return self::fresh();
     }
 }
