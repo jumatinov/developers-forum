@@ -305,7 +305,7 @@
             }
         },
         created() {
-            this.$store.dispatch('getQuestions').then(() => {console.log(this.pagination)});
+            this.changePage();
         },
         computed: {
             ...mapState({
@@ -314,8 +314,11 @@
             })
         },
         methods: {
-            changePage(page) {
-                this.$store.dispatch('getQuestions', page);
+            changePage(page = 1) {
+                this.$store.dispatch('getQuestions', {
+                    page: page,
+                    searchText: new URLSearchParams(window.location.search).get('searchText'),
+                });
             },
             paginationDraw(c, m) {
                 const current = c;

@@ -15,8 +15,12 @@ class QuestionController extends Controller
         $this->middleware('auth:api')->except(['index', 'show', 'questionsByTags']);
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        if($request->has('searchText')) {
+            return QuestionResource::collection(Question::where('title', 'like', '%' . $request->searchText . '%')
+                ->orderBy('created_at', 'desc')->paginate(8));
+        }
         return QuestionResource::collection(Question::orderBy('created_at', 'desc')->paginate(8));
     }
 

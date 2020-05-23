@@ -27,8 +27,9 @@ const store = new Vuex.Store({
                 context.commit('updateTags', response.data.data);
             })
         },
-        getQuestions(context, page = 1) {
-            return get(`/api/questions?page=${page}`).then((response) => {
+        getQuestions(context, page = {page: 1}) {
+            return get(`/api/questions?page=${page.page}${!!page.searchText ? `&searchText=${page.searchText}` : ''}`)
+                .then((response) => {
                 context.commit('updateQuestions', response.data.data);
                 context.commit('updateQuestionsPagination', response.data.meta);
                 return response;
