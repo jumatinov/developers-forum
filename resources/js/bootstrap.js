@@ -54,3 +54,10 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+window.showLoader = () => {
+    document.getElementById('loader-content').classList.add('active');
+};
+
+window.hideLoader = () => {
+    document.getElementById('loader-content').classList.remove('active');
+};

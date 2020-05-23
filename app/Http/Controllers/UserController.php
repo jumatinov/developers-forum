@@ -14,7 +14,9 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        return User::create($request->all());
+        $user = User::create($request->all());
+        $user->generateApiToken();
+        return $user;
     }
 
     public function show(User $user)

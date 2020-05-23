@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->comment('Почта');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('username')->unique()->nullable()->default(null);
+            $table->string('api_token')->unique()->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
         });
