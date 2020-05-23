@@ -31,7 +31,10 @@
                                             <input type="text" placeholder="Email" v-model="email" class="form-control" />
                                         </div>
                                         <div>
-                                            <input type="text" placeholder="Пароль" v-model="password" class="form-control" />
+                                            <input type="password" placeholder="Пароль" v-model="password" class="form-control" />
+                                        </div>
+                                        <div>
+                                            <span id="error">Логин или пароль не верен.</span>
                                         </div>
                                         <button class="btn btn-primary" style="margin-top: 50px;" @click="login">Войти</button>
                                     </div>
@@ -59,6 +62,11 @@
 
     </section>
 </template>
+<style>
+    #error {
+        color:red; font-size: 14px; margin-top:10px; display: none;
+    }
+</style>
 <script>
     import router from "../router";
     export default {
@@ -72,6 +80,7 @@
         },
         methods: {
             login() {
+                showLoader();
                 this.$store.dispatch('login', {
                     password: this.password,
                     email: this.email,
@@ -84,7 +93,15 @@
                         this.saveMe(response.data);
                         this.$store.commit('updateMe', response.data);
                         this.$store.commit('updateStateIsLogged', true);
+                        return response;
+                    })
+                    .then(() => {
                         router.push('/profile');
+                        hideLoader();
+                    })
+                    .catch((error) => {
+                        hideLoader();
+                        document.getElementById('error').style.display = 'inline';
                     });
             }
         }

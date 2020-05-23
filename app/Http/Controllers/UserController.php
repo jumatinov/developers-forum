@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api')->except(['show']);
+    }
+
     public function index()
     {
         return User::all();
@@ -34,5 +39,10 @@ class UserController extends Controller
     {
         $user->update($request->all());
         return $user;
+    }
+
+    public function userQuestions(Request $request)
+    {
+        return $request->user()->questions;
     }
 }

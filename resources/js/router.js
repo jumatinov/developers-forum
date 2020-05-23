@@ -39,11 +39,26 @@ const router = new VueRouter({
     ],
 });
 
+function isLogged() {
+    return !!localStorage.getItem('api_token') && !!localStorage.getItem('user');
+}
+
+function isNeedToLogged(path) {
+    return path.indexOf('new-question') > -1 || path.indexOf('profile') > -1;
+}
+
 router.beforeEach((to, from, next) => {
     const { path } = to;
     document.title = to.meta.title || 'Developer Forum';
-
-    next();
+    if (isNeedToLogged(path)) {
+        if (isLogged()) {
+            next();
+        } else {
+            document.location = '/login';
+        }
+    } else {
+        next();
+    }
 });
 
 export default router;

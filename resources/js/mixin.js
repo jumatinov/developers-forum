@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import router from './router';
 
 Vue.mixin({
     methods: {
@@ -8,6 +9,8 @@ Vue.mixin({
         logOut() {
             localStorage.removeItem('user');
             localStorage.removeItem('api_token');
+            this.$store.commit('updateStateIsLogged', false);
+            router.push('/');
         },
         saveToken(token) {
             localStorage.setItem('api_token', token);

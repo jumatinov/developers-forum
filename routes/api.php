@@ -28,3 +28,4 @@ Route::apiResources([
 ]);
 
 Route::get('/me', 'UserController@me');
+Route::get('/user/questions', 'UserController@userQuestions');

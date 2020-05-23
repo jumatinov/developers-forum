@@ -23,10 +23,10 @@
 
         <!-- -->
         <div class="sidebarblock">
-            <h3>Poll of the Week</h3>
+            <h3>Опрос недели</h3>
             <div class="divline"></div>
             <div class="blocktxt">
-                <p>Which game you are playing this week?</p>
+                <p>Какой фреймворк на данный момент самый популярны в FrontEnd?</p>
                 <form action="#" method="post" class="form">
                     <table class="poll">
                         <tr>
@@ -34,7 +34,7 @@
                                 <div class="progress">
                                     <div class="progress-bar color1" role="progressbar" aria-valuenow="40"
                                          aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                                        Call of Duty Ghosts
+                                        React
                                     </div>
                                 </div>
                             </td>
@@ -48,7 +48,7 @@
                                 <div class="progress">
                                     <div class="progress-bar color2" role="progressbar" aria-valuenow="40"
                                          aria-valuemin="0" aria-valuemax="100" style="width: 63%">
-                                        Titanfall
+                                        VueJs
                                     </div>
                                 </div>
                             </td>
@@ -62,7 +62,7 @@
                                 <div class="progress">
                                     <div class="progress-bar color3" role="progressbar" aria-valuenow="40"
                                          aria-valuemin="0" aria-valuemax="100" style="width: 75%">
-                                        Battlefield 4
+                                        Angular
                                     </div>
                                 </div>
                             </td>
@@ -73,7 +73,6 @@
                         </tr>
                     </table>
                 </form>
-                <p class="smal">Voting ends on 19th of October</p>
             </div>
         </div>
 
