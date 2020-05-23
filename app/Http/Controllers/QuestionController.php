@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\QuestionResource;
 use App\Question;
 use Illuminate\Http\Request;
 
@@ -9,12 +10,12 @@ class QuestionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api');
+        $this->middleware('auth:api')->except(['index', 'show']);
     }
 
     public function index()
     {
-        return Question::all();
+        return QuestionResource::collection(Question::paginate(5));
     }
 
     public function store(Request $request)

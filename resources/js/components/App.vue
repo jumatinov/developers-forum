@@ -1,21 +1,18 @@
 <template>
     <div class="container-fluid">
-        <div id="loader-content">
-            <div class="loader-content-icon"></div>
-        </div>
         <!-- Slider -->
-        <div class="tp-banner-container">
-            <div class="tp-banner" >
-                <ul>
-                    <!-- SLIDE  -->
-                    <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
-                        <!-- MAIN IMAGE -->
-                        <img src="images/slide.jpg"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                        <!-- LAYERS -->
-                    </li>
-                </ul>
-            </div>
-        </div>
+<!--        <div class="tp-banner-container">-->
+<!--            <div class="tp-banner" >-->
+<!--                <ul>-->
+<!--                    &lt;!&ndash; SLIDE  &ndash;&gt;-->
+<!--                    <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >-->
+<!--                        &lt;!&ndash; MAIN IMAGE &ndash;&gt;-->
+<!--                        <img src="images/slide.jpg"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">-->
+<!--                        &lt;!&ndash; LAYERS &ndash;&gt;-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
         <!-- //Slider -->
 
         <app-header></app-header>

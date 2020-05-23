@@ -26,3 +26,5 @@ Route::apiResources([
     'questions' => 'QuestionController',
     'answer-likes' => 'AnswerLikeController',
 ]);
+
+Route::get('/me', 'UserController@me');

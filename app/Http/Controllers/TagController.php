@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\TagResource;
 use App\Tag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api')->except(['index', 'show']);
+    }
+
     public function index()
     {
-        return Tag::all();
+        return TagResource::collection(Tag::all());
     }
 
     public function store(Request $request)

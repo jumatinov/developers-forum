@@ -350,5 +350,13 @@
 <script>
     export default {
         name: 'NewQuestion',
+        data() {
+            return {
+                question: {
+                    title: '',
+                    question: '',
+                }
+            }
+        }
     }
 </script>

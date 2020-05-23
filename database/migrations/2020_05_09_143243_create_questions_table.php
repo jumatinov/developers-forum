@@ -15,8 +15,9 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title')->comment('Заголовок');
             $table->unsignedInteger('user_id')->comment('Пользователь');
-            $table->unsignedInteger('views')->comment('Просмотры');
+            $table->unsignedInteger('views')->default(0)->comment('Просмотры');
             $table->text('question')->comment('Вопрос');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');

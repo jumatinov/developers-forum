@@ -7,13 +7,16 @@
             <div class="divline"></div>
             <div class="blocktxt">
                 <ul class="cats">
-                    <li><a href="#">Trading for Money <span class="badge pull-right">20</span></a></li>
-                    <li><a href="#">Vault Keys Giveway <span class="badge pull-right">10</span></a></li>
-                    <li><a href="#">Misc Guns Locations <span class="badge pull-right">50</span></a></li>
-                    <li><a href="#">Looking for Players <span class="badge pull-right">36</span></a></li>
-                    <li><a href="#">Stupid Bugs &amp; Solves <span class="badge pull-right">41</span></a></li>
-                    <li><a href="#">Video &amp; Audio Drivers <span class="badge pull-right">11</span></a></li>
-                    <li><a href="#">2K Official Forums <span class="badge pull-right">5</span></a></li>
+                    <li v-for="tag in tags">
+                        <a href="#">{{ tag.name }} <span class="badge pull-right">{{ tag.question_count }}</span></a>
+                    </li>
+<!--                    <li><a href="#">Trading for Money <span class="badge pull-right">20</span></a></li>-->
+<!--                    <li><a href="#">Vault Keys Giveway <span class="badge pull-right">10</span></a></li>-->
+<!--                    <li><a href="#">Misc Guns Locations <span class="badge pull-right">50</span></a></li>-->
+<!--                    <li><a href="#">Looking for Players <span class="badge pull-right">36</span></a></li>-->
+<!--                    <li><a href="#">Stupid Bugs &amp; Solves <span class="badge pull-right">41</span></a></li>-->
+<!--                    <li><a href="#">Video &amp; Audio Drivers <span class="badge pull-right">11</span></a></li>-->
+<!--                    <li><a href="#">2K Official Forums <span class="badge pull-right">5</span></a></li>-->
                 </ul>
             </div>
         </div>
@@ -102,7 +105,17 @@
     </div>
 </template>
 <script>
+    import {mapState} from 'vuex';
     export default {
         name: 'AppSidebar',
+        created() {
+            showLoader();
+            this.$store.dispatch('getTags').then(hideLoader);
+        },
+        computed: {
+            ...mapState({
+                tags: state => state.tags,
+            })
+        }
     }
 </script>

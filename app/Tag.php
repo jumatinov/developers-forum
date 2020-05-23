@@ -12,4 +12,9 @@ class Tag extends Model
     {
         return $this->belongsToMany(Question::class, 'question_tags');
     }
+
+    public function getQuestionCountAttribute() : int
+    {
+        return count($this->questions);
+    }
 }

@@ -41,6 +41,9 @@
         </script>
     </head>
     <body>
+    <div id="loader-content">
+        <div class="loader-content-icon"></div>
+    </div>
     <div id="app"></div>
     <script src="{{ asset('/js/app.js') }}"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>

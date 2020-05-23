@@ -30,14 +30,22 @@
                     <div class="env pull-left"><i class="fa fa-envelope"></i></div>
 
                     <div class="avatar pull-left dropdown">
-                        <a data-toggle="dropdown" href="#"><img src="images/avatar.jpg" alt="" /></a> <b class="caret"></b>
+                        <a data-toggle="dropdown" href="#">
+                            <img src="https://visualpharm.com/assets/30/User-595b40b85ba036ed117da56f.svg" height="30" alt="" /></a> <b class="caret"></b>
                         <div class="status green">&nbsp;</div>
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu" role="menu" v-if="isLoggedIn || stateIsLogged">
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/profile">Мой профиль</a></li>
 <!--                            <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Inbox</a></li>-->
                             <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Выйти с профиля</a></li>
 <!--                            <li role="presentation"><a role="menuitem" tabindex="-4" href="04_new_account.html">Create account</a></li>-->
                         </ul>
+                        <ul class="dropdown-menu" role="menu" v-else>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/profile">Мой профиль</a></li>
+<!--                            <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Inbox</a></li>-->
+                            <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Выйти с профиля</a></li>
+<!--                            <li role="presentation"><a role="menuitem" tabindex="-4" href="04_new_account.html">Create account</a></li>-->
+                        </ul>
+
                     </div>
 
                     <div class="clearfix"></div>
@@ -48,10 +56,16 @@
 
 </template>
 <script>
+    import {mapState} from 'vuex'
     export default {
         name: 'AppHeader',
         mounted() {
             console.log('Header mounted');
+        },
+        computed: {
+            ...mapState({
+                stateIsLogged: state => state.stateIsLogged,
+            })
         }
     }
 </script>

@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Profile from './components/Profile';
+import Login from "./components/Login";
 import Main from './components/Main';
 import Question from "./components/Question";
 import NewQuestion from "./components/NewQuestion";
@@ -30,28 +31,19 @@ const router = new VueRouter({
         {
             path: '/question',
             component: Question,
+        },
+        {
+            path: '/login',
+            component: Login,
         }
     ],
 });
 
-// router.beforeEach((to, from, next) => {
-//     const { path } = to;
-//
-//     document.title = to.meta.title || 'Chocofamily Intra';
-//
-//     if (path.indexOf('app/hr') === 1) {
-//         if (window.is_superadmin || window.is_hr) {
-//             next();
-//         } else {
-//             document.location = '/app';
-//         }
-//     }
-//
-//     expiredSessionRedirectOnAuth();
-//
-//     newUserRedirectOnWelcome(path);
-//
-//     next();
-// });
+router.beforeEach((to, from, next) => {
+    const { path } = to;
+    document.title = to.meta.title || 'Developer Forum';
+
+    next();
+});
 
 export default router;
