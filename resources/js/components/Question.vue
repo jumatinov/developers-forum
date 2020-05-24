@@ -187,6 +187,7 @@
             getQuestion() {
                 this.$store.dispatch('getQuestion', this.$route.params.id).then((response) => {
                     this.question = response.data.data;
+                    this.$store.dispatch('increaseQuestionViews', this.question.id);
                 });
             },
         }

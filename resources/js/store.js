@@ -54,6 +54,12 @@ const store = new Vuex.Store({
         getUserQuestions(context) {
             return get('/api/user/questions');
         },
+        increaseQuestionViews(context, id) {
+            return get(`/api/question/${id}/views`);
+        },
+        signup(context, data) {
+            return post('/api/signup', data);
+        },
     },
     mutations: {
         updateCurrentUser(state, user) {

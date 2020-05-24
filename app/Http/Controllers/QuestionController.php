@@ -12,12 +12,12 @@ class QuestionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api')->except(['index', 'show', 'questionsByTags']);
+        $this->middleware('auth:api')->except(['index', 'show', 'questionsByTags', 'increaseViews']);
     }
 
     public function index(Request $request)
     {
-        if($request->has('searchText')) {
+        if ($request->has('searchText')) {
             return QuestionResource::collection(Question::where('title', 'like', '%' . $request->searchText . '%')
                 ->orderBy('created_at', 'desc')->paginate(8));
         }
@@ -54,4 +54,13 @@ class QuestionController extends Controller
     {
         return QuestionResource::collection(Tag::find($id)->questions()->paginate(5));
     }
+
+    public function increaseViews($id)
+    {
+        $question = Question::find($id);
+        $question->views = $question->views + 1;
+        $question->save();
+        return response()->json(['message' => 'Successful'], 200);
+    }
+
 }

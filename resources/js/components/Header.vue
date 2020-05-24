@@ -6,10 +6,13 @@
                 <div class="col-lg-3 col-xs-9 col-sm-5 col-md-3 selecttopic">
                     <div class="dropdown">
                         <a data-toggle="dropdown" href="/" >Форум Разработчиков</a> <b class="caret"></b>
-                        <ul class="dropdown-menu" role="menu">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Borderlands 1</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Borderlands 2</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-3" href="#">Borderlands 3</a></li>
+                        <ul class="dropdown-menu" style="margin-top:10px;" role="menu">
+                            <li role="presentation"><router-link role="menuitem" tabindex="-1" to="/">Главная</router-link></li>
+                            <li role="presentation"><router-link role="menuitem" tabindex="-1" to="/">Главная</router-link></li>
+                            <li role="presentation"><router-link role="menuitem" tabindex="-1" to="/about-us">О нас</router-link></li>
+                            <li role="presentation"><router-link role="menuitem" tabindex="-1" to="/about-us">Шаблоны</router-link></li>
+                            <li role="presentation"><router-link role="menuitem" tabindex="-1" to="/about-us">Услуги</router-link></li>
+                            <li role="presentation"><router-link role="menuitem" tabindex="-2" to="/site-request">Оставить заявку на создание сайта</router-link></li>
 
                         </ul>
                     </div>
@@ -31,7 +34,7 @@
 
                     <div class="avatar pull-left dropdown">
                         <a data-toggle="dropdown" href="#">
-                            <img src="https://visualpharm.com/assets/30/User-595b40b85ba036ed117da56f.svg" height="30" alt="" /></a> <b class="caret"></b>
+                            <img :src="getMe() ? getMe().email.indexOf('super') > -1 ? 'images/female.jpg' : 'images/male.png' : 'https://visualpharm.com/assets/30/User-595b40b85ba036ed117da56f.svg'" height="30" alt="" /></a> <b class="caret"></b>
                         <div class="status green">&nbsp;</div>
                         <ul class="dropdown-menu" role="menu" v-if="isLoggedIn() || stateIsLogged">
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/profile">Мой профиль</a></li>
@@ -40,7 +43,10 @@
 <!--                            <li role="presentation"><a role="menuitem" tabindex="-4" href="04_new_account.html">Create account</a></li>-->
                         </ul>
                         <ul class="dropdown-menu" role="menu" v-else>
+
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/login">Войти</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/signup">Зарегистрироваться</a></li>
+
 <!--                            <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Зарегистрироваться</a></li>-->
                         </ul>
 

@@ -10,7 +10,7 @@ Vue.mixin({
             localStorage.removeItem('user');
             localStorage.removeItem('api_token');
             this.$store.commit('updateStateIsLogged', false);
-            router.push('/');
+            document.location = '/';
         },
         saveToken(token) {
             localStorage.setItem('api_token', token);

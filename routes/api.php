@@ -33,4 +33,6 @@ Route::apiResources([
 Route::get('/me', 'UserController@me');
 Route::post('/login', 'Auth\LoginController@login');
 Route::get('/questions-by-tags/{id}', 'QuestionController@questionsByTags');
+Route::get('/question/{id}/views', 'QuestionController@increaseViews');
+Route::post('/signup', 'UserController@signup');
 //Route::get('/user/questions', 'UserController@userQuestions');

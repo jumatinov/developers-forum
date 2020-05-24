@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api')->except(['show']);
+        $this->middleware('auth:api')->except(['show', 'signup']);
     }
 
     public function index()
@@ -38,6 +38,13 @@ class UserController extends Controller
     public function update(User $user, Request $request)
     {
         $user->update($request->all());
+        return $user;
+    }
+
+    public function signup(Request $request)
+    {
+        $user = User::create($request->all());
+        $user->generateApiToken();
         return $user;
     }
 }

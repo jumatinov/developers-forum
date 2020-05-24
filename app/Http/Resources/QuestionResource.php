@@ -20,8 +20,10 @@ class QuestionResource extends JsonResource
             'question' => $this->question,
             'user_id' => $this->user_id,
             'user'=> $this->user,
+            'views' => $this->views,
             'created_at' => $this->created_at->toIsoString(),
             'updated_at' => $this->updated_at->toIsoString(),
+            'answers_count' => $this->answers_count,
         ];
     }
 }

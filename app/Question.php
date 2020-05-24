@@ -10,6 +10,11 @@ class Question extends Model
 
     protected $dates = ['created_at', 'updated_at'];
 
+    public function getAnswersCountAttribute() : int
+    {
+        return count($this->answers);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
