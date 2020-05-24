@@ -39,6 +39,7 @@
             ]); ?>
 
         </script>
+
     </head>
     <body>
     <div id="loader-content">
@@ -75,7 +76,6 @@
         });	//ready
 
     </script>
-
 
     </body>
 </html>

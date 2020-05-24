@@ -22,43 +22,39 @@ const router = new VueRouter({
     },
     routes: [
         {
-            path: '/profile',
+            path: '/app/profile',
             component: Profile,
         },
         {
-            path: '/',
-            component: Main,
-        },
-        {
-            path: '/forum',
+            path: '/app',
             component: Forum,
         },
         {
-            path: '/new-question',
+            path: '/app/new-question',
             component: NewQuestion,
         },
         {
-            path: '/question/:id',
+            path: '/app/question/:id',
             component: Question,
         },
         {
-            path: '/login',
+            path: '/app/login',
             component: Login,
         },
         {
-            path: '/signup',
+            path: '/app/signup',
             component: Signup,
         },
         {
-            path: '/create',
+            path: '/app/create',
             component: CreateProfile,
         },
         {
-            path: '/about-us',
+            path: '/app/about-us',
             component: AboutUs,
         },
         {
-            path: '/site-request',
+            path: '/app/site-request',
             component: SiteRequest,
         }
     ],
@@ -83,11 +79,11 @@ router.beforeEach((to, from, next) => {
         if (isLogged()) {
             next();
         } else {
-            document.location = '/login';
+            document.location = '/app/login';
         }
     } else {
         if (isLogged() && isNeedToNotLogged(path)) {
-            document.location = '/';
+            document.location = '/app';
         }
         next();
     }
