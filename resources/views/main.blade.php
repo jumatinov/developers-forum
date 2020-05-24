@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-lg-4 text-center">
                     <div class="site-logo">
-                        <a href="index.html">devforum</a>
+                        <a href="/forum">devforum</a>
                     </div>
 
 
