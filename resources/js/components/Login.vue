@@ -96,7 +96,7 @@
                         return response;
                     })
                     .then(() => {
-                        router.push('/profile');
+                        router.push('/app/profile');
                         hideLoader();
                     })
                     .catch((error) => {

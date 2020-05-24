@@ -181,7 +181,7 @@
                             hideLoader();
                         });
                 } else {
-                    router.push('/login');
+                    router.push('/app/login');
                 }
             },
             getQuestion() {

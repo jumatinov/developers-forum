@@ -95,7 +95,7 @@
                     this.saveMe(response.data);
                     this.saveToken(response.data.api_token);
                     this.$store.commit('updateStateIsLogged', true);
-                    router.push('/profile');
+                    router.push('/app/profile');
                     hideLoader();
                 });
             },

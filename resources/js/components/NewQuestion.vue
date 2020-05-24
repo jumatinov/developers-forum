@@ -160,7 +160,7 @@
                     user_id: this.getMe().id,
                 }).then(() => {
                     hideLoader();
-                    router.push('/');
+                    router.push('/app');
                 }).catch(() => {
                     document.getElementById('error').style.display = 'inline';
                     hideLoader();

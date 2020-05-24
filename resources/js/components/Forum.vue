@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="posttext pull-left">
-                                <h2><router-link :to="`/question/${question.id}`">{{ question.title }}</router-link></h2>
+                                <h2><router-link :to="`/app/question/${question.id}`">{{ question.title }}</router-link></h2>
                                 <p>{{ question.question }}</p>
                             </div>
                             <div class="clearfix"></div>

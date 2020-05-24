@@ -30,7 +30,7 @@
                                 <div class="topwrap">
                                     <div class="userinfo pull-left">
                                         <div class="avatar">
-                                            <img src="images/avatar-blank.jpg" alt="" />
+                                            <img src="/images/avatar-blank.jpg" alt="" />
                                             <div class="status green">&nbsp;</div>
                                         </div>
                                         <div class="imgsize">60 x 60</div>
@@ -101,16 +101,16 @@
                         <div class="wrap-ut pull-left">
                             <div class="userinfo pull-left">
                                 <div class="avatar" :title="`${user.name} ${user.surname}`">
-                                    <img src="images/avatar.jpg" alt="" />
+                                    <img src="/images/avatar.jpg" alt="" />
                                     <div class="status green">&nbsp;</div>
                                 </div>
 
                                 <div class="icons">
-                                    <img src="images/icon1.jpg" alt="" /><img src="images/icon4.jpg" alt="" />
+                                    <img src="/images/icon1.jpg" alt="" /><img src="/images/icon4.jpg" alt="" />
                                 </div>
                             </div>
                             <div class="posttext pull-left">
-                                <h2><router-link :to="`/question/${question.id}`">{{ question.title }}</router-link></h2>
+                                <h2><router-link :to="`/app/question/${question.id}`">{{ question.title }}</router-link></h2>
                                 <p>{{ question.question }}</p>
                             </div>
                             <div class="clearfix"></div>

@@ -43,7 +43,7 @@
                 <div class="col-lg-4">
                     <nav class="site-navigation text-right ml-auto " role="navigation">
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li class="active"><a href="index.html" class="nav-link">Главная</a></li>
+                            <li class="active"><a href="#" class="nav-link">Главная</a></li>
                             <li><a href="/app" class="nav-link">Форум</a></li>
                             <li><a href="javascript:void(0)" class="nav-link">Услуги</a></li>
                         </ul>
